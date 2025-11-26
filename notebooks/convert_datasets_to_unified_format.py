@@ -1,47 +1,106 @@
 """
-Convert all datasets to unified ai4privacy format:
+Convert all PII datasets to unified format:
 {
     "source_text": "...",
     "language": "en",
+    "source": "dataset_name",
     "privacy_mask": [
         {"label": "LABEL", "start": 0, "end": 10, "value": "..."}
     ]
 }
-
-Datasets to convert:
-1. beki_privy.json - has spans with positions
-2. urchade_synthetic_pii_ner_mistral.json - has entities without positions
-3. fewnerd_train.json - has tokens + numeric tags (general NER, not PII)
 """
 
 import json
 import os
-import re
+import ast
 
 # ============================================================
 # Paths
 # ============================================================
-INPUT_DIR = "/Users/sravan/Documents/Experiments/fintuning_PII/Data/additional_datasets"
+DATA_DIR = "/Users/sravan/Documents/Experiments/fintuning_PII/Data"
 OUTPUT_DIR = "/Users/sravan/Documents/Experiments/fintuning_PII/Data/additional_datasets/unified"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
 # ============================================================
-# 1. Convert beki_privy.json
-#    Format: full_text, spans: [{entity_type, entity_value, start_position, end_position}]
+# Helper function to save and show info
+# ============================================================
+def save_dataset(data, name):
+    output_path = os.path.join(OUTPUT_DIR, f"{name}_unified.json")
+    with open(output_path, "w") as f:
+        json.dump(data, f)
+
+    size_mb = os.path.getsize(output_path) / (1024 * 1024)
+    print(f"   Saved {len(data):,} samples ({size_mb:.2f} MB)")
+
+    # Show sample
+    for sample in data[:50]:
+        if sample.get("privacy_mask"):
+            print(f"   Sample text: {sample['source_text'][:80]}...")
+            print(f"   Sample entities: {sample['privacy_mask'][:2]}")
+            break
+
+
+# ============================================================
+# 1. ai4privacy-pii-masking-200k (already unified format)
 # ============================================================
 print("=" * 60)
-print("1. Converting beki_privy.json...")
+print("1. ai4privacy-pii-masking-200k")
 print("=" * 60)
 
-with open(os.path.join(INPUT_DIR, "beki_privy.json")) as f:
-    beki_data = json.load(f)
+with open(f"{DATA_DIR}/ai4privacy-pii-masking-200k/train.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
 
-print(f"   Loaded {len(beki_data)} samples")
+converted = []
+for item in data:
+    converted.append({
+        "source_text": item.get("source_text", ""),
+        "language": item.get("language", "en"),
+        "source": "ai4privacy_200k",
+        "privacy_mask": item.get("privacy_mask", [])
+    })
 
-beki_converted = []
-for item in beki_data:
-    # Filter out "O" (non-entity) spans
+save_dataset(converted, "ai4privacy_200k")
+
+
+# ============================================================
+# 2. ai4privacy_pii_masking_400k (already unified format)
+# ============================================================
+print("\n" + "=" * 60)
+print("2. ai4privacy_pii_masking_400k")
+print("=" * 60)
+
+with open(f"{DATA_DIR}/additional_datasets/ai4privacy_pii_masking_400k.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
+
+converted = []
+for item in data:
+    converted.append({
+        "source_text": item.get("source_text", ""),
+        "language": item.get("language", "en"),
+        "source": "ai4privacy_400k",
+        "privacy_mask": item.get("privacy_mask", [])
+    })
+
+save_dataset(converted, "ai4privacy_400k")
+
+
+# ============================================================
+# 3. beki_privy
+#    Format: full_text, spans: [{entity_type, entity_value, start_position, end_position}]
+# ============================================================
+print("\n" + "=" * 60)
+print("3. beki_privy")
+print("=" * 60)
+
+with open(f"{DATA_DIR}/additional_datasets/beki_privy.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
+
+converted = []
+for item in data:
     privacy_mask = []
     for span in item.get("spans", []):
         if span.get("entity_type") != "O":
@@ -52,46 +111,142 @@ for item in beki_data:
                 "value": span.get("entity_value", "")
             })
 
-    converted = {
+    converted.append({
         "source_text": item.get("full_text", ""),
         "language": "en",
         "source": "beki_privy",
         "privacy_mask": privacy_mask
-    }
-    beki_converted.append(converted)
+    })
 
-# Save
-output_path = os.path.join(OUTPUT_DIR, "beki_privy_unified.json")
-with open(output_path, "w") as f:
-    json.dump(beki_converted, f, indent=2)
-print(f"   Saved {len(beki_converted)} samples to {output_path}")
-
-# Show sample
-print("   Sample:")
-print(f"   Text: {beki_converted[0]['source_text'][:100]}...")
-print(f"   Entities: {beki_converted[0]['privacy_mask'][:3]}")
+save_dataset(converted, "beki_privy")
 
 
 # ============================================================
-# 2. Convert urchade_synthetic_pii_ner_mistral.json
-#    Format: text, entities: [{entity, types}] - need to find positions
+# 4. urchade_synthetic_pii_ner_mistral
+#    Format: tokenized_text, ner: [[start_idx, end_idx, label], ...]
 # ============================================================
 print("\n" + "=" * 60)
-print("2. Converting urchade_synthetic_pii_ner_mistral.json...")
+print("4. urchade_synthetic_pii_ner_mistral")
 print("=" * 60)
 
-with open(os.path.join(INPUT_DIR, "urchade_synthetic_pii_ner_mistral.json")) as f:
-    urchade_data = json.load(f)
+with open(f"{DATA_DIR}/additional_datasets/urchade_synthetic_pii_ner_mistral.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
 
-print(f"   Loaded {len(urchade_data)} samples")
-print(f"   Sample keys: {list(urchade_data[0].keys())}")
+converted = []
+for item in data:
+    tokens = item.get("tokenized_text", [])
+    ner = item.get("ner", [])
 
-urchade_converted = []
-skipped = 0
+    # Reconstruct text and track positions
+    text_parts = []
+    token_char_starts = []
+    current_pos = 0
 
-for item in urchade_data:
+    for i, token in enumerate(tokens):
+        token_char_starts.append(current_pos)
+        text_parts.append(token)
+        current_pos += len(token)
+
+        if i < len(tokens) - 1:
+            next_token = tokens[i + 1]
+            if next_token not in [',', '.', '!', '?', ':', ';', "'", '"', ')', ']', '}']:
+                text_parts.append(" ")
+                current_pos += 1
+
+    text = "".join(text_parts)
+
+    privacy_mask = []
+    for span in ner:
+        if len(span) >= 3:
+            start_idx, end_idx, label = span[0], span[1], span[2]
+            if start_idx < len(tokens) and end_idx < len(tokens):
+                entity_tokens = tokens[start_idx:end_idx + 1]
+                entity_text = " ".join(entity_tokens)
+                char_start = token_char_starts[start_idx]
+
+                privacy_mask.append({
+                    "label": label,
+                    "start": char_start,
+                    "end": char_start + len(entity_text),
+                    "value": entity_text
+                })
+
+    converted.append({
+        "source_text": text,
+        "language": "en",
+        "source": "urchade_synthetic",
+        "privacy_mask": privacy_mask
+    })
+
+save_dataset(converted, "urchade")
+
+
+# ============================================================
+# 5. e3jsi_synthetic_multi_pii
+#    Format: text, entities: [{entity, types}], language
+# ============================================================
+print("\n" + "=" * 60)
+print("5. e3jsi_synthetic_multi_pii")
+print("=" * 60)
+
+with open(f"{DATA_DIR}/additional_datasets/e3jsi_synthetic_multi_pii.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
+
+converted = []
+for item in data:
     text = item.get("text", "")
     entities = item.get("entities", [])
+    language = item.get("language", "en")
+
+    privacy_mask = []
+    for ent in entities:
+        entity_text = ent.get("entity", "")
+        entity_types = ent.get("types", [])
+
+        start = text.find(entity_text)
+        if start != -1:
+            label = entity_types[0] if entity_types else "UNKNOWN"
+            privacy_mask.append({
+                "label": label,
+                "start": start,
+                "end": start + len(entity_text),
+                "value": entity_text
+            })
+
+    converted.append({
+        "source_text": text,
+        "language": language,
+        "source": "e3jsi_synthetic",
+        "privacy_mask": privacy_mask
+    })
+
+save_dataset(converted, "e3jsi")
+
+
+# ============================================================
+# 6. gretel-pii-masking-en-v1
+#    Format: text, entities (string): [{entity, types}] - need to find positions
+# ============================================================
+print("\n" + "=" * 60)
+print("6. gretel-pii-masking-en-v1")
+print("=" * 60)
+
+with open(f"{DATA_DIR}/gretel-pii-masking-en-v1/test.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
+
+converted = []
+for item in data:
+    text = item.get("text", "")
+    entities_str = item.get("entities", "[]")
+
+    # Parse string to list of dicts
+    try:
+        entities = ast.literal_eval(entities_str) if isinstance(entities_str, str) else entities_str
+    except:
+        entities = []
 
     privacy_mask = []
     for ent in entities:
@@ -101,165 +256,194 @@ for item in urchade_data:
         # Find position in text
         start = text.find(entity_text)
         if start != -1:
-            end = start + len(entity_text)
-            # Use first type as label
             label = entity_types[0] if entity_types else "UNKNOWN"
             privacy_mask.append({
                 "label": label,
                 "start": start,
-                "end": end,
+                "end": start + len(entity_text),
                 "value": entity_text
             })
 
-    converted = {
+    converted.append({
         "source_text": text,
         "language": "en",
-        "source": "urchade_synthetic_pii_ner_mistral",
+        "source": "gretel_pii_en",
         "privacy_mask": privacy_mask
-    }
-    urchade_converted.append(converted)
+    })
 
-# Save
-output_path = os.path.join(OUTPUT_DIR, "urchade_unified.json")
-with open(output_path, "w") as f:
-    json.dump(urchade_converted, f, indent=2)
-print(f"   Saved {len(urchade_converted)} samples to {output_path}")
-
-# Show sample
-print("   Sample:")
-print(f"   Text: {urchade_converted[0]['source_text'][:100]}...")
-print(f"   Entities: {urchade_converted[0]['privacy_mask'][:3]}")
+save_dataset(converted, "gretel_pii_en")
 
 
 # ============================================================
-# 3. Convert fewnerd_train.json
-#    Format: tokens[], ner_tags[] (numeric)
-#    Tags: 0=O, 1=art, 2=building, 3=event, 4=location,
-#          5=organization, 6=other, 7=person, 8=product
-#    NOTE: This is general NER, not PII-specific
+# 7. gretel-finance-multilingual
+#    Format: generated_text, pii_spans (JSON string): [{label, start, end}]
 # ============================================================
 print("\n" + "=" * 60)
-print("3. Converting fewnerd_train.json...")
+print("7. gretel-finance-multilingual")
 print("=" * 60)
 
-# Tag mapping for Few-NERD coarse tags
-FEWNERD_TAGS = {
-    0: "O",
-    1: "art",
-    2: "building",
-    3: "event",
-    4: "location",
-    5: "organization",
-    6: "other",
-    7: "person",
-    8: "product"
-}
+with open(f"{DATA_DIR}/gretel-finance-multilingual/test.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
 
-with open(os.path.join(INPUT_DIR, "fewnerd_train.json")) as f:
-    fewnerd_data = json.load(f)
+converted = []
+for item in data:
+    text = item.get("generated_text", "")
+    pii_spans_str = item.get("pii_spans", "[]")
+    language = item.get("language", "en")
 
-print(f"   Loaded {len(fewnerd_data)} samples")
+    # Parse JSON string
+    try:
+        pii_spans = json.loads(pii_spans_str) if isinstance(pii_spans_str, str) else pii_spans_str
+    except:
+        pii_spans = []
 
-fewnerd_converted = []
-
-for item in fewnerd_data:
-    tokens = item.get("tokens", [])
-    ner_tags = item.get("ner_tags", [])
-
-    # Reconstruct text from tokens
-    text = " ".join(tokens)
-
-    # Find entity spans
     privacy_mask = []
-    current_entity_tokens = []
-    current_label = None
-    current_start = 0
-    char_pos = 0
-
-    for i, (token, tag) in enumerate(zip(tokens, ner_tags)):
-        label = FEWNERD_TAGS.get(tag, "O")
-
-        if label != "O":
-            if current_label is None:
-                # Start new entity
-                current_label = label
-                current_start = char_pos
-                current_entity_tokens = [token]
-            elif label == current_label:
-                # Continue same entity
-                current_entity_tokens.append(token)
-            else:
-                # Different entity - save previous and start new
-                entity_text = " ".join(current_entity_tokens)
+    if isinstance(pii_spans, list):
+        for span in pii_spans:
+            if isinstance(span, dict):
+                start = span.get("start", 0)
+                end = span.get("end", 0)
+                # Extract value from text using positions
+                value = text[start:end] if start < len(text) and end <= len(text) else ""
                 privacy_mask.append({
-                    "label": current_label.upper(),
-                    "start": current_start,
-                    "end": current_start + len(entity_text),
-                    "value": entity_text
+                    "label": span.get("label", ""),
+                    "start": start,
+                    "end": end,
+                    "value": value
                 })
-                current_label = label
-                current_start = char_pos
-                current_entity_tokens = [token]
-        else:
-            if current_label is not None:
-                # End of entity
-                entity_text = " ".join(current_entity_tokens)
+
+    converted.append({
+        "source_text": text,
+        "language": language,
+        "source": "gretel_finance",
+        "privacy_mask": privacy_mask
+    })
+
+save_dataset(converted, "gretel_finance")
+
+
+# ============================================================
+# 8. nvidia-nemotron-pii
+#    Format: text, spans (Python dict string): [{text, label, start, end}]
+# ============================================================
+print("\n" + "=" * 60)
+print("8. nvidia-nemotron-pii")
+print("=" * 60)
+
+with open(f"{DATA_DIR}/nvidia-nemotron-pii/test.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
+
+converted = []
+for item in data:
+    text = item.get("text", "")
+    spans_str = item.get("spans", "[]")
+
+    # Parse Python dict string
+    try:
+        spans = ast.literal_eval(spans_str) if isinstance(spans_str, str) else spans_str
+    except:
+        spans = []
+
+    privacy_mask = []
+    if isinstance(spans, list):
+        for span in spans:
+            if isinstance(span, dict):
                 privacy_mask.append({
-                    "label": current_label.upper(),
-                    "start": current_start,
-                    "end": current_start + len(entity_text),
-                    "value": entity_text
+                    "label": span.get("label", ""),
+                    "start": span.get("start", 0),
+                    "end": span.get("end", 0),
+                    "value": span.get("text", "")  # nvidia uses 'text' not 'value'
                 })
-                current_label = None
-                current_entity_tokens = []
 
-        char_pos += len(token) + 1  # +1 for space
-
-    # Handle entity at end of sequence
-    if current_label is not None:
-        entity_text = " ".join(current_entity_tokens)
-        privacy_mask.append({
-            "label": current_label.upper(),
-            "start": current_start,
-            "end": current_start + len(entity_text),
-            "value": entity_text
-        })
-
-    converted = {
+    converted.append({
         "source_text": text,
         "language": "en",
-        "source": "fewnerd",
+        "source": "nvidia_nemotron",
         "privacy_mask": privacy_mask
-    }
-    fewnerd_converted.append(converted)
+    })
 
-# Save
-output_path = os.path.join(OUTPUT_DIR, "fewnerd_unified.json")
-with open(output_path, "w") as f:
-    json.dump(fewnerd_converted, f, indent=2)
-print(f"   Saved {len(fewnerd_converted)} samples to {output_path}")
+save_dataset(converted, "nvidia_nemotron")
 
-# Show sample with entities
-for sample in fewnerd_converted[:50]:
-    if sample["privacy_mask"]:
-        print("   Sample:")
-        print(f"   Text: {sample['source_text'][:100]}...")
-        print(f"   Entities: {sample['privacy_mask'][:3]}")
-        break
+
+# ============================================================
+# 9. gliner_pii_train_split
+#    Format: tokenized_text, ner (same as urchade)
+# ============================================================
+print("\n" + "=" * 60)
+print("9. gliner_pii_train_split")
+print("=" * 60)
+
+with open(f"{DATA_DIR}/gliner_pii_train_split.json") as f:
+    data = json.load(f)
+print(f"   Loaded {len(data):,} samples")
+
+converted = []
+for item in data:
+    tokens = item.get("tokenized_text", [])
+    ner = item.get("ner", [])
+
+    # Reconstruct text
+    text_parts = []
+    token_char_starts = []
+    current_pos = 0
+
+    for i, token in enumerate(tokens):
+        token_char_starts.append(current_pos)
+        text_parts.append(token)
+        current_pos += len(token)
+
+        if i < len(tokens) - 1:
+            next_token = tokens[i + 1]
+            if next_token not in [',', '.', '!', '?', ':', ';', "'", '"', ')', ']', '}']:
+                text_parts.append(" ")
+                current_pos += 1
+
+    text = "".join(text_parts)
+
+    privacy_mask = []
+    for span in ner:
+        if len(span) >= 3:
+            start_idx, end_idx, label = span[0], span[1], span[2]
+            if start_idx < len(tokens) and end_idx < len(tokens):
+                entity_tokens = tokens[start_idx:end_idx + 1]
+                entity_text = " ".join(entity_tokens)
+                char_start = token_char_starts[start_idx]
+
+                privacy_mask.append({
+                    "label": label,
+                    "start": char_start,
+                    "end": char_start + len(entity_text),
+                    "value": entity_text
+                })
+
+    converted.append({
+        "source_text": text,
+        "language": "en",
+        "source": "gliner_pii",
+        "privacy_mask": privacy_mask
+    })
+
+save_dataset(converted, "gliner_pii")
 
 
 # ============================================================
 # Summary
 # ============================================================
 print("\n" + "=" * 60)
-print("Conversion Complete!")
+print("CONVERSION COMPLETE!")
 print("=" * 60)
-print(f"\nOutput directory: {OUTPUT_DIR}")
-print("\nFiles created:")
+print(f"\nOutput directory: {OUTPUT_DIR}\n")
+
+total_samples = 0
 for f in sorted(os.listdir(OUTPUT_DIR)):
-    if f.endswith('.json'):
+    if f.endswith('_unified.json'):
         path = os.path.join(OUTPUT_DIR, f)
         size_mb = os.path.getsize(path) / (1024 * 1024)
         with open(path) as file:
             data = json.load(file)
-        print(f"  {f:40s} {size_mb:8.2f} MB  ({len(data)} samples)")
+        total_samples += len(data)
+        print(f"  {f:35s} {len(data):>10,} samples  ({size_mb:6.1f} MB)")
+
+print(f"\n  {'TOTAL':35s} {total_samples:>10,} samples")
