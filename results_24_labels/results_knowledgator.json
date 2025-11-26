@@ -1,0 +1,52 @@
+{
+  "test_samples": 2296,
+  "labels_used": [
+    "date",
+    "full name",
+    "username",
+    "social security number",
+    "tax identification number",
+    "passport number",
+    "driver's license number",
+    "identification number",
+    "phone number",
+    "address",
+    "email address",
+    "ip address",
+    "fax number",
+    "credit card number",
+    "credit score",
+    "bank account number",
+    "amount",
+    "iban",
+    "health insurance number",
+    "medical condition",
+    "medication",
+    "medical treatment",
+    "organization"
+  ],
+  "threshold": 0.5,
+  "threshold_details": null,
+  "results": {
+    "Knowledge-Base": {
+      "precision": 0.2953883867013942,
+      "recall": 0.8228766538625694,
+      "f1": 0.43472378804960543,
+      "tp": 5784,
+      "fp": 13797,
+      "fn": 1245,
+      "exact_precision": 0.2842551452939074,
+      "exact_recall": 0.7922003985197836,
+      "exact_f1": 0.4183861389859811,
+      "exact_tp": 5566,
+      "exact_fp": 14015,
+      "exact_fn": 1460,
+      "hierarchical_improvement": 0.016337649063624338,
+      "time": 1107.3765499591827,
+      "num_labels": 23,
+      "post_processing": {
+        "enabled": false
+      }
+    }
+  }
+}

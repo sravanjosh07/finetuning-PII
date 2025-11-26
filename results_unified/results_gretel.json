@@ -1,0 +1,50 @@
+{
+  "test_samples": 2296,
+  "labels_used": [
+    "date",
+    "full name",
+    "username",
+    "social security number",
+    "tax identification number",
+    "government id",
+    "phone number",
+    "address",
+    "email address",
+    "ip address",
+    "fax number",
+    "credit card number",
+    "credit score",
+    "bank account number",
+    "amount",
+    "iban",
+    "health insurance number",
+    "disease",
+    "medication",
+    "treatment",
+    "organization"
+  ],
+  "threshold": 0.1,
+  "threshold_details": null,
+  "results": {
+    "Gretel-Base": {
+      "precision": 0.6499088304245897,
+      "recall": 0.35495803101436907,
+      "f1": 0.45914611704085395,
+      "tp": 2495,
+      "fp": 1344,
+      "fn": 4534,
+      "exact_precision": 0.6402709038812191,
+      "exact_recall": 0.34984343865641904,
+      "exact_f1": 0.4524620340543028,
+      "exact_tp": 2458,
+      "exact_fp": 1381,
+      "exact_fn": 4568,
+      "hierarchical_improvement": 0.006684082986551154,
+      "time": 267.190416097641,
+      "num_labels": 21,
+      "post_processing": {
+        "enabled": false
+      }
+    }
+  }
+}

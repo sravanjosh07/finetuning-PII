@@ -1,0 +1,34 @@
+# Data files (large)
+data/
+preds_24_labels/
+preds_unified/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Large model files
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors

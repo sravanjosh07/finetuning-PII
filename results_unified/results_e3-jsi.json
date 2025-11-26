@@ -1,0 +1,50 @@
+{
+  "test_samples": 2296,
+  "labels_used": [
+    "date",
+    "full name",
+    "username",
+    "social security number",
+    "tax identification number",
+    "government id",
+    "phone number",
+    "address",
+    "email address",
+    "ip address",
+    "fax number",
+    "credit card number",
+    "credit score",
+    "bank account number",
+    "amount",
+    "iban",
+    "health insurance number",
+    "disease",
+    "medication",
+    "treatment",
+    "organization"
+  ],
+  "threshold": 0.1,
+  "threshold_details": null,
+  "results": {
+    "E3-JSI-Domains": {
+      "precision": 0.4887625236934741,
+      "recall": 0.7701607168254871,
+      "f1": 0.5980121479845389,
+      "tp": 5415,
+      "fp": 5664,
+      "fn": 1616,
+      "exact_precision": 0.4755844390287932,
+      "exact_recall": 0.7499288357529177,
+      "exact_f1": 0.5820491576912454,
+      "exact_tp": 5269,
+      "exact_fp": 5810,
+      "exact_fn": 1757,
+      "hierarchical_improvement": 0.01596299029329351,
+      "time": 290.80544686317444,
+      "num_labels": 21,
+      "post_processing": {
+        "enabled": false
+      }
+    }
+  }
+}

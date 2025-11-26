@@ -1,0 +1,2694 @@
+{
+  "model": "E3-JSI-Domains",
+  "test_samples": 50,
+  "labels_used": [
+    "person",
+    "organization",
+    "phone number",
+    "address",
+    "email",
+    "passport number",
+    "credit card number",
+    "social security number",
+    "date of birth",
+    "blood type",
+    "driver's license",
+    "identity card",
+    "birth certificate",
+    "bank account number",
+    "CVV",
+    "IBAN",
+    "mobile phone number",
+    "fax number",
+    "health insurance ID",
+    "medical condition",
+    "medication",
+    "tax ID",
+    "CPF",
+    "CNPJ",
+    "IP address",
+    "username",
+    "digital signature",
+    "social media handle",
+    "flight number",
+    "train ticket",
+    "license plate",
+    "vehicle registration",
+    "reservation number",
+    "transaction number"
+  ],
+  "threshold": 0.3,
+  "predictions": [
+    {
+      "sample_idx": 0,
+      "text": "Payment required for property tax pertaining to Romaguera Port 32627. Amount payable is S/.0.00b.",
+      "predictions": [
+        {
+          "text": "Romaguera Port 32627",
+          "label": "address",
+          "score": 0.316499799489975,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Romaguera Port",
+          "type": "address",
+          "normalized_type": "address"
+        },
+        {
+          "entity": "S/.0.00b",
+          "type": "bank account balance",
+          "normalized_type": "bank account balance"
+        }
+      ]
+    },
+    {
+      "sample_idx": 1,
+      "text": "All students taking the standardized test should be prepared to provide their MR6730074271010090029008033 and 1TEj87namdSeo9QjeTn1neyGiHxPVGbELr for registration. Security trianing for the Mozilla/5.0 (Windows NT 6.1; rv:8.2) Gecko/20100101 Firefox/8.2.0 will be held [16.662,-91.8758] of the testing center.",
+      "predictions": [
+        {
+          "text": "testing center",
+          "label": "organization",
+          "score": 0.37848129868507385,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "MR6730074271010090029008033",
+          "type": "iban",
+          "normalized_type": "iban"
+        }
+      ]
+    },
+    {
+      "sample_idx": 2,
+      "text": "Disaster emergency form: Fill A@tutanota.com, Arguedas, and occupation Animator. Provide IP [IPV4_1] for confirmation and address 483. Specify financial info 630453088616837 and manner of currency GBP.",
+      "predictions": [
+        {
+          "text": "A@tutanota.com",
+          "label": "email address",
+          "score": 0.657767117023468,
+          "normalized_label": "email"
+        },
+        {
+          "text": "Arguedas",
+          "label": "username",
+          "score": 0.5662214756011963,
+          "normalized_label": "username"
+        },
+        {
+          "text": "[IPV4_1]",
+          "label": "ip address",
+          "score": 0.7408488392829895,
+          "normalized_label": "ip_address"
+        },
+        {
+          "text": "483",
+          "label": "address",
+          "score": 0.6737026572227478,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "A@tutanota.com",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "Arguedas",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "630453088616837",
+          "type": "credit card number",
+          "normalized_type": "credit_card"
+        }
+      ]
+    },
+    {
+      "sample_idx": 3,
+      "text": "2\\tGrade Improvement Plan\\tOur plan includes additional tutoring for 74joaleyss. All materials accessible at 74joaleyss. Store finances under 86168083080.",
+      "predictions": [
+        {
+          "text": "74joaleyss",
+          "label": "organization",
+          "score": 0.9039866328239441,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "74joaleyss",
+          "label": "organization",
+          "score": 0.8934991955757141,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "74joaleyss",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "74joaleyss",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "86168083080",
+          "type": "bank account number",
+          "normalized_type": "bank_account"
+        }
+      ]
+    },
+    {
+      "sample_idx": 4,
+      "text": "In the vibrant city of Noida, where skyscrapers and residential neighborhoods intertwine, resides Nayantara Luthra, whose digital presence extends to the professional realm of LinkedIn under the handle \"hsachdeva.\" Her online portfolio serves as a testament to her professional acumen, showcasing her skills and connecting her with like-minded individuals.\n\nResiding at 760, Hegde Ganj Noida 227317, Nayantara's physical address stands as a tangible representation of her identity. Amidst the hustle and bustle of city life, her phone number, 2571593434, provides a direct line of communication, connecting her to the world around her.\n\nAs a responsible citizen, Nayantara possesses a PAN card with the number ZWAGX4182T, ensuring compliance with her financial obligations. Her Driving License, TN4386832125929, empowers her to navigate the roads, while her Passport, D1110078, symbolizes her ability to explore the world beyond borders.\n\nUnited by a common thread, these pieces of information paint a multifaceted portrait of Nayantara Luthra. They reveal her digital presence, her physical address, her means of communication, her financial and legal responsibilities, and her freedom to travel and explore. Like fragments of a puzzle, they fit together to create a holistic representation of an individual who is both connected and independent, rooted in her community and open to the possibilities that lie ahead.",
+      "predictions": [
+        {
+          "text": "Nayantara Luthra",
+          "label": "full name",
+          "score": 0.8731605410575867,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "LinkedIn",
+          "label": "organization",
+          "score": 0.9116348624229431,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "hsachdeva",
+          "label": "username",
+          "score": 0.8200743794441223,
+          "normalized_label": "username"
+        },
+        {
+          "text": "760, Hegde Ganj Noida 227317",
+          "label": "address",
+          "score": 0.6511780619621277,
+          "normalized_label": "address"
+        },
+        {
+          "text": "2571593434",
+          "label": "phone number",
+          "score": 0.9974606037139893,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "TN4386832125929",
+          "label": "drivers license number",
+          "score": 0.9868126511573792,
+          "normalized_label": "driver_license"
+        },
+        {
+          "text": "D1110078",
+          "label": "passport number",
+          "score": 0.9985516667366028,
+          "normalized_label": "passport"
+        },
+        {
+          "text": "Nayantara Luthra",
+          "label": "full name",
+          "score": 0.838244616985321,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Nayantara Luthra",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "indrajit24@example.org",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "hsachdeva",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "2571593434",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "760, Hegde Ganj Noida 227317",
+          "type": "address",
+          "normalized_type": "address"
+        },
+        {
+          "entity": "ZWAGX4182T",
+          "type": "tax identification number",
+          "normalized_type": "tax_id"
+        },
+        {
+          "entity": "TN4386832125929",
+          "type": "drivers license number",
+          "normalized_type": "driver_license"
+        },
+        {
+          "entity": "D1110078",
+          "type": "passport number",
+          "normalized_type": "passport"
+        }
+      ]
+    },
+    {
+      "sample_idx": 5,
+      "text": "**Health Insurance Claims Form**\n\n**Employee Information**\n\n- First Name: Maryam\n- Last Name: Peters\n- Employee ID: M4935K\n- Department: Human Resources\n\n**Claim Details**\n\n| Date of Service | Type of Service | Provider Information | Medical Record Number | Diagnosis Codes | Procedure Codes | Cost Breakdowns |\n|-----------------|-----------------|---------------------|------------------------|-----------------|-----------------|-----------------|\n| 2028-11-15      | Medical Consultation | Dr. Smith, General Practitioner | LAC-00149273 | ICD-10 Code | CPT Code | $250.00 |\n\n**Health Plan Information**\n\n- Health Plan Beneficiary Number: AET-7893-4562-12\n- Fax Number: 747-736-6836",
+      "predictions": [
+        {
+          "text": "Maryam",
+          "label": "full name",
+          "score": 0.8482508659362793,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Peters",
+          "label": "full name",
+          "score": 0.6889617443084717,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Human Resources",
+          "label": "organization",
+          "score": 0.5431653261184692,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "2028-11-15",
+          "label": "date",
+          "score": 0.9813035726547241,
+          "normalized_label": "date"
+        },
+        {
+          "text": "Dr. Smith, General Practitioner",
+          "label": "full name",
+          "score": 0.4695131182670593,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "AET-7893-4562-12",
+          "label": "health insurance id number",
+          "score": 0.5530949234962463,
+          "normalized_label": "health_insurance"
+        },
+        {
+          "text": "747-736-6836",
+          "label": "fax number",
+          "score": 0.9943348169326782,
+          "normalized_label": "fax_number"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Maryam Peters",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "2028-11-15",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "Dr. Smith",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "LAC-00149273",
+          "type": "medical condition",
+          "normalized_type": "medical_condition"
+        },
+        {
+          "entity": "AET-7893-4562-12",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        },
+        {
+          "entity": "747-736-6836",
+          "type": "fax number",
+          "normalized_type": "fax_number"
+        }
+      ]
+    },
+    {
+      "sample_idx": 6,
+      "text": "Emma Williams was instructed to take Amoxicillin by Dr. James Lee at the Downtown Clinic to treat her bacterial infection.",
+      "predictions": [
+        {
+          "text": "Emma Williams",
+          "label": "full name",
+          "score": 0.9756231904029846,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Amoxicillin",
+          "label": "medication",
+          "score": 0.9889274835586548,
+          "normalized_label": "medication"
+        },
+        {
+          "text": "Dr. James Lee",
+          "label": "full name",
+          "score": 0.9024158716201782,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Downtown Clinic",
+          "label": "organization",
+          "score": 0.9906553626060486,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "bacterial infection",
+          "label": "medical condition",
+          "score": 0.8538647294044495,
+          "normalized_label": "medical_condition"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Emma Williams",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "Amoxicillin",
+          "type": "medication",
+          "normalized_type": "medication"
+        },
+        {
+          "entity": "Dr. James Lee",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "bacterial infection",
+          "type": "medical condition",
+          "normalized_type": "medical_condition"
+        }
+      ]
+    },
+    {
+      "sample_idx": 7,
+      "text": "I am Sharda Chambers, born on 1980-12-02. My gender is male. My medical record number is LAX-00028374 and my blood type is A+. I am currently an intern and my health plan beneficiary number is TXMCD19842736.",
+      "predictions": [
+        {
+          "text": "Sharda Chambers",
+          "label": "full name",
+          "score": 0.9546783566474915,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "1980-12-02",
+          "label": "date",
+          "score": 0.9713360667228699,
+          "normalized_label": "date"
+        },
+        {
+          "text": "LAX-00028374",
+          "label": "health insurance id number",
+          "score": 0.43689966201782227,
+          "normalized_label": "health_insurance"
+        },
+        {
+          "text": "TXMCD19842736",
+          "label": "health insurance id number",
+          "score": 0.8483704328536987,
+          "normalized_label": "health_insurance"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Sharda Chambers",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "1980-12-02",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "LAX-00028374",
+          "type": "insurance plan number",
+          "normalized_type": "insurance plan number"
+        },
+        {
+          "entity": "TXMCD19842736",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        }
+      ]
+    },
+    {
+      "sample_idx": 8,
+      "text": "Hello, I'm Lennie, a Direct Data Engineer from Pays de la Loire. I'm interested in scheduling a career counselling appointment.",
+      "predictions": [
+        {
+          "text": "Lennie",
+          "label": "full name",
+          "score": 0.9599970579147339,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Direct Data Engineer",
+          "label": "organization",
+          "score": 0.6811178922653198,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Pays de la Loire",
+          "label": "address",
+          "score": 0.6660266518592834,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Lennie",
+          "type": "full name",
+          "normalized_type": "full name"
+        }
+      ]
+    },
+    {
+      "sample_idx": 9,
+      "text": "<p>Name: Retirement Account<br>Training Date: 12th February 2018<br>Credit Card: DISCOVER, Expiry: [CREDITCARDEXPIRYCREDITCARDCVV_1]<br>Balance: [BALANCE_1]</p>",
+      "predictions": [
+        {
+          "text": "Retirement Account",
+          "label": "organization",
+          "score": 0.9251671433448792,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "12th February 2018",
+          "label": "date",
+          "score": 0.9941409230232239,
+          "normalized_label": "date"
+        },
+        {
+          "text": "DISCOVER",
+          "label": "credit card number",
+          "score": 0.9277374148368835,
+          "normalized_label": "credit_card"
+        },
+        {
+          "text": "BALANCE_1",
+          "label": "bank account balance",
+          "score": 0.3093470335006714,
+          "normalized_label": "bank account balance"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "12th February 2018",
+          "type": "date",
+          "normalized_type": "date"
+        }
+      ]
+    },
+    {
+      "sample_idx": 10,
+      "text": "In the heart of Mirzapur, at 92/054 Sankaran Marg, resides Zaina Singh, a talented individual who seeks to capture the world through the lens of writing. With her email address, zaina_singh@varughese-chawla.com, she connects with the digital realm. Her phone, 910586208578, keeps her connected to conversations near and far.\n\nOn GitHub, Zaina's username, zaina_singh729, represents her passion for technology. Her user ID, 464642683IhPS3WeMaKKWMLFy, serves as a unique identifier in the vast digital landscape. Her PAN number, NSQQQ8637G, signifies her financial contributions.\n\nBehind the wheel, Zaina's driving license, TR6516220404650, grants her the freedom to explore. When venturing beyond borders, her passport, V1929357, opens doors to new experiences. Through these personal details, Zaina's identity is woven into the fabric of her life, both physical and virtual.",
+      "predictions": [
+        {
+          "text": "92/054 Sankaran Marg",
+          "label": "address",
+          "score": 0.8862180113792419,
+          "normalized_label": "address"
+        },
+        {
+          "text": "zaina_singh@varughese-chawla.com",
+          "label": "email address",
+          "score": 0.9578886032104492,
+          "normalized_label": "email"
+        },
+        {
+          "text": "910586208578",
+          "label": "phone number",
+          "score": 0.9822326898574829,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "GitHub",
+          "label": "organization",
+          "score": 0.5514904260635376,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "zaina_singh729",
+          "label": "username",
+          "score": 0.9857432246208191,
+          "normalized_label": "username"
+        },
+        {
+          "text": "464642683IhPS3WeMaKKWMLFy",
+          "label": "username",
+          "score": 0.7535889744758606,
+          "normalized_label": "username"
+        },
+        {
+          "text": "TR6516220404650",
+          "label": "drivers license number",
+          "score": 0.9967832565307617,
+          "normalized_label": "driver_license"
+        },
+        {
+          "text": "V1929357",
+          "label": "passport number",
+          "score": 0.9992569088935852,
+          "normalized_label": "passport"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Zaina Singh",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "zaina_singh@varughese-chawla.com",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "910586208578",
+          "type": "mobile phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "zaina_singh729",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "NSQQQ8637G",
+          "type": "tax identification number",
+          "normalized_type": "tax_id"
+        },
+        {
+          "entity": "TR6516220404650",
+          "type": "drivers license number",
+          "normalized_type": "driver_license"
+        },
+        {
+          "entity": "V1929357",
+          "type": "passport number",
+          "normalized_type": "passport"
+        },
+        {
+          "entity": "92/054 Sankaran Marg",
+          "type": "address",
+          "normalized_type": "address"
+        }
+      ]
+    },
+    {
+      "sample_idx": 11,
+      "text": "**Tax Documentation**\n\n**Account Holder Information**\n\n- Account Holder Name: Maria Fernandez\n- Account Number: C98451234\n- Tax Identification Number: 963-57-3182\n- Occupation: cashier\n\n**Income Statement**\n\n| Description       | Amount |\n|-------------------|--------|\n| Salary            | $50,000|\n| Interest Income   | $500   |\n\n**Deduction Summary**\n\n| Deduction Type    | Amount |\n|-------------------|--------|\n| Health Plan       | $2,000 |\n| Health Plan Beneficiary Number: 1BK9-TY3-MN24\n\n**Bank Information**\n\n- Bank Routing Number: 661123457\n\n**Authorization**\n\n_____________________________   _____________\nMaria Fernandez (Signature)         Date\n\n**Note**: This document is for illustrative purposes only and does not constitute actual tax advice. Please consult with a tax professional for guidance tailored to your specific situation.",
+      "predictions": [
+        {
+          "text": "Maria Fernandez",
+          "label": "full name",
+          "score": 0.9594056010246277,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "C98451234",
+          "label": "bank account number",
+          "score": 0.8531399965286255,
+          "normalized_label": "bank_account"
+        },
+        {
+          "text": "963-57-3182",
+          "label": "tax identification number",
+          "score": 0.9943360686302185,
+          "normalized_label": "tax_id"
+        },
+        {
+          "text": "Health Plan",
+          "label": "organization",
+          "score": 0.48920124769210815,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "1BK9-TY3-MN24",
+          "label": "health insurance id number",
+          "score": 0.4087337553501129,
+          "normalized_label": "health_insurance"
+        },
+        {
+          "text": "661123457",
+          "label": "bank account number",
+          "score": 0.7273737788200378,
+          "normalized_label": "bank_account"
+        },
+        {
+          "text": "Maria Fernandez",
+          "label": "full name",
+          "score": 0.9416117072105408,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Maria Fernandez",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "C98451234",
+          "type": "bank account number",
+          "normalized_type": "bank_account"
+        },
+        {
+          "entity": "963-57-3182",
+          "type": "tax identification number",
+          "normalized_type": "tax_id"
+        },
+        {
+          "entity": "1BK9-TY3-MN24",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        },
+        {
+          "entity": "Maria Fernandez",
+          "type": "full name",
+          "normalized_type": "full name"
+        }
+      ]
+    },
+    {
+      "sample_idx": 12,
+      "text": "Monitor 0008-457-097-4465 logs for unauthorized access. Verify Female profiles with Gray authentication. Essential to keep 184,233.10 records updated in system 9198394.",
+      "predictions": [
+        {
+          "text": "Female",
+          "label": "full name",
+          "score": 0.4402398467063904,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "0008-457-097-4465",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "9198394",
+          "type": "bank account number",
+          "normalized_type": "bank_account"
+        }
+      ]
+    },
+    {
+      "sample_idx": 13,
+      "text": "Form to be completed by students applying for educational grants.|Student Name: 2007T|Eye Color: Brown|Street: Moormead Road|Secondary Address: Floor 694|Height: 186 cm|Organisation: Kelly-Heath|Masked Number: 4053539315348423799435|IBAN: GB51 9RWF FSJR OFH3 US6B E2",
+      "predictions": [
+        {
+          "text": "2007T",
+          "label": "student id number",
+          "score": 0.8871001601219177,
+          "normalized_label": "student_id"
+        },
+        {
+          "text": "Moormead Road",
+          "label": "address",
+          "score": 0.8955280184745789,
+          "normalized_label": "address"
+        },
+        {
+          "text": "Floor 694",
+          "label": "address",
+          "score": 0.7926738262176514,
+          "normalized_label": "address"
+        },
+        {
+          "text": "Kelly-Heath",
+          "label": "organization",
+          "score": 0.9290989637374878,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "GB51 9RWF FSJR OFH3 US6B E2",
+          "label": "iban",
+          "score": 0.9750185012817383,
+          "normalized_label": "iban"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "2007T",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "Moormead Road",
+          "type": "address",
+          "normalized_type": "address"
+        }
+      ]
+    },
+    {
+      "sample_idx": 14,
+      "text": "Change Log\n\n001-2024-07-15: Password reset for user nk1995 on 2024-07-15. The new password is Rainbow@2025. The API key b8f5a72e-3b9c-4f1d-ba5e-7d9c8e2f5b3a was updated.  The change was made by the employee with employee id 23-MKT-349.  The change was submitted to the IT support team by nina.kos@technova-it.si  The change was logged at 2023-04-27T11:56:46.",
+      "predictions": [
+        {
+          "text": "nk1995",
+          "label": "username",
+          "score": 0.9684127569198608,
+          "normalized_label": "username"
+        },
+        {
+          "text": "2024-07-15",
+          "label": "date",
+          "score": 0.9830843806266785,
+          "normalized_label": "date"
+        },
+        {
+          "text": "nina.kos@technova-it.si",
+          "label": "email address",
+          "score": 0.84259432554245,
+          "normalized_label": "email"
+        },
+        {
+          "text": "2023-04-27T11:56:46",
+          "label": "date",
+          "score": 0.9054081439971924,
+          "normalized_label": "date"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "2024-07-15",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "nk1995",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "nina.kos@technova-it.si",
+          "type": "email address",
+          "normalized_type": "email"
+        }
+      ]
+    },
+    {
+      "sample_idx": 15,
+      "text": "The Disability Insurance Plan provides comprehensive coverage for eligible employees who become unable to perform their job duties due to a covered disability. Susan, born on 1963-01-16, is a compensation benefits job analysis specialist and is covered under this plan. Her health plan beneficiary number is 245 876 3210. The definition of disability under this plan includes any medical condition that prevents Susan from performing the essential functions of her occupation. Her medical record number is 220115-7892. The benefit period begins on the date Susan becomes disabled and continues until she is no longer disabled or reaches the maximum benefit period. The claim filing instructions require Susan to submit her claim within 90 days of the onset of disability. Her social security number is 460-23-3407. She can file her claim by sending an email to susanjmeece59@gmail.com. The plan administrator will review the claim and determine eligibility for benefits based on the medical evidence provided.",
+      "predictions": [
+        {
+          "text": "Disability Insurance Plan",
+          "label": "organization",
+          "score": 0.9734374284744263,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "disability",
+          "label": "medical condition",
+          "score": 0.3021564185619354,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "Susan",
+          "label": "full name",
+          "score": 0.958197832107544,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "1963-01-16",
+          "label": "date",
+          "score": 0.9583989381790161,
+          "normalized_label": "date"
+        },
+        {
+          "text": "245 876 3210",
+          "label": "insurance plan number",
+          "score": 0.5931620597839355,
+          "normalized_label": "insurance plan number"
+        },
+        {
+          "text": "disability",
+          "label": "medical condition",
+          "score": 0.48988303542137146,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "medical condition",
+          "label": "medical condition",
+          "score": 0.5397912263870239,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "Susan",
+          "label": "full name",
+          "score": 0.9330732226371765,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Susan",
+          "label": "full name",
+          "score": 0.972367525100708,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Susan",
+          "label": "full name",
+          "score": 0.9558512568473816,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "disability",
+          "label": "medical condition",
+          "score": 0.31900641322135925,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "460-23-3407",
+          "label": "social security number",
+          "score": 0.998268723487854,
+          "normalized_label": "ssn"
+        },
+        {
+          "text": "susanjmeece59@gmail.com",
+          "label": "email address",
+          "score": 0.9921407103538513,
+          "normalized_label": "email"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Susan",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "1963-01-16",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "245 876 3210",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        },
+        {
+          "entity": "Susan",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "220115-7892",
+          "type": "insurance plan number",
+          "normalized_type": "insurance plan number"
+        },
+        {
+          "entity": "Susan",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "Susan",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "460-23-3407",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        },
+        {
+          "entity": "susanjmeece59@gmail.com",
+          "type": "email address",
+          "normalized_type": "email"
+        }
+      ]
+    },
+    {
+      "sample_idx": 16,
+      "text": "**Property and Warranty Claim Form**\n\n**Claimant Information:**\n- First Name: Emma\n- Phone Number: (506) 847-2983\n- Email: emmalefebvre@harbourviewproperties.ca\n- Date: 2023-11-15\n\n**Property Details:**\n- Street Address: 350 Albert Street Suite 200\n- City: Saint John\n- State: New Brunswick\n\n**Claim Description:**\n- Please provide a detailed description of the issue or damage.\n\n**Incident Date:**\n- Please specify the date of the incident.\n\n**Estimated Repair Costs:**\n- Please estimate the costs for repairs.\n\n**Supporting Documentation:**\n- Please attach any relevant documents such as photographs, receipts, or previous correspondence.\n\n**Signature:**\n- Claimant's Signature:\n- Date:\n- Authorized Representative's Signature:\n- Date:\n\n**Insurance or Warranty Provider's Use:**\n- Claim Status:\n- Approval/Denial Details:",
+      "predictions": [
+        {
+          "text": "Emma",
+          "label": "full name",
+          "score": 0.9408262372016907,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "(506) 847-2983",
+          "label": "phone number",
+          "score": 0.9977442026138306,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "emmalefebvre@harbourviewproperties.ca",
+          "label": "email address",
+          "score": 0.9748263359069824,
+          "normalized_label": "email"
+        },
+        {
+          "text": "2023-11-15",
+          "label": "date",
+          "score": 0.9892561435699463,
+          "normalized_label": "date"
+        },
+        {
+          "text": "350 Albert Street Suite 200",
+          "label": "address",
+          "score": 0.8682857751846313,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Emma",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "(506) 847-2983",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "emmalefebvre@harbourviewproperties.ca",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "2023-11-15",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "350 Albert Street Suite 200",
+          "type": "address",
+          "normalized_type": "address"
+        }
+      ]
+    },
+    {
+      "sample_idx": 17,
+      "text": "**Investment and Credit Card Application**\n\n**Personal Information**\n\nFirst Name: Deborah\nSocial Security Number: 261-13-8354\nRace Ethnicity: colombian\n\n**Employment Details**\n\nEmployment Status: part-time\n\n**Credit Card Specifics**\n\nCredit/Debit Card Number: 5321 4567 8901 2345",
+      "predictions": [
+        {
+          "text": "Deborah",
+          "label": "full name",
+          "score": 0.9699116945266724,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "261-13-8354",
+          "label": "social security number",
+          "score": 0.9961863160133362,
+          "normalized_label": "ssn"
+        },
+        {
+          "text": "5321 4567 8901 2345",
+          "label": "credit card number",
+          "score": 0.9969442486763,
+          "normalized_label": "credit_card"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Deborah",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "261-13-8354",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        },
+        {
+          "entity": "5321 4567 8901 2345",
+          "type": "credit card number",
+          "normalized_type": "credit_card"
+        }
+      ]
+    },
+    {
+      "sample_idx": 18,
+      "text": "To carry out the financial transactions, use the SK9550088097993110090237 along with the JRXIINFWXXX.",
+      "predictions": [],
+      "ground_truth": [
+        {
+          "entity": "SK9550088097993110090237",
+          "type": "iban",
+          "normalized_type": "iban"
+        }
+      ]
+    },
+    {
+      "sample_idx": 19,
+      "text": "The Wi-Fi Client Report for julian1995 shows that the user's device with the mac address 8B:EA:AD:1F:3C:6D was connected to the network with a strong signal strength. The user's connection details were recorded in Tarrant County, indicating the location of the Wi-Fi client. The user's religious belief was noted as Protestant, although this information is not directly relevant to the technical aspects of the report. The health plan beneficiary number 1FH8-GR9-MX25 was also included in the user's profile, which might be relevant for any health-related services provided through the network.",
+      "predictions": [
+        {
+          "text": "julian1995",
+          "label": "username",
+          "score": 0.8787216544151306,
+          "normalized_label": "username"
+        },
+        {
+          "text": "8B:EA:AD:1F:3C:6D",
+          "label": "ip address",
+          "score": 0.8950696587562561,
+          "normalized_label": "ip_address"
+        },
+        {
+          "text": "Tarrant County",
+          "label": "address",
+          "score": 0.3939361572265625,
+          "normalized_label": "address"
+        },
+        {
+          "text": "1FH8-GR9-MX25",
+          "label": "health insurance id number",
+          "score": 0.8488181233406067,
+          "normalized_label": "health_insurance"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "julian1995",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "1FH8-GR9-MX25",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        }
+      ]
+    },
+    {
+      "sample_idx": 20,
+      "text": "```\nUsername:\nPassword:\nPIN: 809456\nConfirm PIN:\nFirst Name: Kenneth\nLast Name: Norris\nEmail: kennethjnorris45@icloud.com\nPhone Number: 912-730-1444\nDate of Birth:\n\n[ ] I agree to the terms and conditions.\n\n[Login]  [Create Account]  [Forgot PIN/Password]\n\nPlease enter your PIN at 18:22 to log in or create an account. Your PIN must be exactly 6 digits long. 809456\n```",
+      "predictions": [
+        {
+          "text": "Kenneth",
+          "label": "full name",
+          "score": 0.6063169836997986,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Norris",
+          "label": "username",
+          "score": 0.6042070984840393,
+          "normalized_label": "username"
+        },
+        {
+          "text": "kennethjnorris45@icloud.com",
+          "label": "email address",
+          "score": 0.9343641400337219,
+          "normalized_label": "email"
+        },
+        {
+          "text": "912-730-1444",
+          "label": "phone number",
+          "score": 0.9915826916694641,
+          "normalized_label": "phone"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Kenneth Norris",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "kennethjnorris45@icloud.com",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "912-730-1444",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "18:22",
+          "type": "date",
+          "normalized_type": "date"
+        }
+      ]
+    },
+    {
+      "sample_idx": 21,
+      "text": "Dr. Amanda Collins drove her vehicle with registration number ABC1234 to the Riverside Hospital to attend to an emergency call. She parked near the Emergency Department and rushed inside. Mr. John Doe, a 65-year-old diabetic patient, was waiting for her. He had been brought in by an ambulance after experiencing severe chest pain. The nurse, Lisa Edwards, was standing by with the patient's medical records.",
+      "predictions": [
+        {
+          "text": "Dr. Amanda Collins",
+          "label": "full name",
+          "score": 0.7119321227073669,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Riverside Hospital",
+          "label": "organization",
+          "score": 0.9950079917907715,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Emergency Department",
+          "label": "organization",
+          "score": 0.8267417550086975,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Mr. John Doe",
+          "label": "full name",
+          "score": 0.5851553082466125,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "diabetic",
+          "label": "medical condition",
+          "score": 0.5636825561523438,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "severe chest pain",
+          "label": "medical condition",
+          "score": 0.6288133859634399,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "Lisa Edwards",
+          "label": "full name",
+          "score": 0.531731128692627,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Dr. Amanda Collins",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "John Doe",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "diabetic",
+          "type": "medical condition",
+          "normalized_type": "medical_condition"
+        },
+        {
+          "entity": "severe chest pain",
+          "type": "medical condition",
+          "normalized_type": "medical_condition"
+        }
+      ]
+    },
+    {
+      "sample_idx": 22,
+      "text": "July 15, 2024, was a productive day for me. I started my morning with a light breakfast and then headed to the gym. I felt a bit tired, but I pushed through my workout routine. By 18:45:32.123, I was back home, hydrated, and feeling much better. I logged into my health plan portal using my beneficiary number 8291 345 6729 to update my progress. I also received an email at marthamurphy@fitspark.co reminding me to schedule my next check-up. I ended my day by journaling my mood and physical measurements, noting that I was feeling strong and motivated. I logged out of my health plan portal and closed my browser. The http cookie value pref_fontsize=14px; Expires=Fri, 15 Mar 2025 18:30:00 GMT; Path=/; is set.",
+      "predictions": [
+        {
+          "text": "July 15, 2024",
+          "label": "date",
+          "score": 0.9767611026763916,
+          "normalized_label": "date"
+        },
+        {
+          "text": "gym",
+          "label": "organization",
+          "score": 0.3228131830692291,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "health plan portal",
+          "label": "organization",
+          "score": 0.506653904914856,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "8291 345 6729",
+          "label": "health insurance id number",
+          "score": 0.46903905272483826,
+          "normalized_label": "health_insurance"
+        },
+        {
+          "text": "marthamurphy@fitspark.co",
+          "label": "email address",
+          "score": 0.9843215942382812,
+          "normalized_label": "email"
+        },
+        {
+          "text": "health plan portal",
+          "label": "organization",
+          "score": 0.5525557398796082,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Fri, 15 Mar 2025 18:30:00 GMT",
+          "label": "date",
+          "score": 0.5893332958221436,
+          "normalized_label": "date"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "July 15, 2024",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "18:45:32.123",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "8291 345 6729",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        },
+        {
+          "entity": "marthamurphy@fitspark.co",
+          "type": "email address",
+          "normalized_type": "email"
+        }
+      ]
+    },
+    {
+      "sample_idx": 23,
+      "text": "### Credit Application Form\n\n**Page 1: Applicant Personal Information**\n\n- **Customer ID:** 23USR19834\n- **First Name:** Duc\n- **Last Name:** Nguyen\n- **Preferred Language:** Vietnamese\n- **Religious Belief:** Caodaism\n- **Account Number:** 397258614017\n\n**Page 2: Employment Details**\n\n- **Current Employer:**\n- **Job Title:**\n- **Employment Status:**\n- **Fax Number:** 038 356-1024\n\n**Page 3: Income Verification**\n\n- **Gross Annual Income:**\n- **Net Annual Income:**\n- **Income Source:**\n\n**Page 4: Credit History**\n\n- **Credit Score:**\n- **Previous Loans:**\n- **Payment History:**\n\n**Page 5: Collateral Information**\n\n- **Type of Collateral:**\n- **Value of Collateral:**\n- **Collateral Description:**\n\n**Page 6: Loan Specifications**\n\n- **Loan Amount Requested:**\n- **Loan Purpose:**\n- **Repayment Terms:**\n- **Interest Rate:**\n- **Loan Duration:**",
+      "predictions": [
+        {
+          "text": "Duc",
+          "label": "full name",
+          "score": 0.8032825589179993,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Nguyen",
+          "label": "full name",
+          "score": 0.8321977853775024,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "397258614017",
+          "label": "bank account number",
+          "score": 0.4714337885379791,
+          "normalized_label": "bank_account"
+        },
+        {
+          "text": "038 356-1024",
+          "label": "fax number",
+          "score": 0.9935669302940369,
+          "normalized_label": "fax_number"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Duc Nguyen",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "397258614017",
+          "type": "bank account number",
+          "normalized_type": "bank_account"
+        },
+        {
+          "entity": "038 356-1024",
+          "type": "fax number",
+          "normalized_type": "fax_number"
+        }
+      ]
+    },
+    {
+      "sample_idx": 24,
+      "text": "Hello Ronaldo. Our school's new wellness program can be accessed at https://offbeat-tambourine.net. Please, could you share this resource during your Metrics lessons? For any queries, please get in touch on Edna37@hotmail.com or (343) 4532611. Best, Bertram",
+      "predictions": [
+        {
+          "text": "Ronaldo",
+          "label": "full name",
+          "score": 0.6877205967903137,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "school",
+          "label": "organization",
+          "score": 0.6192812919616699,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Edna37@hotmail.com",
+          "label": "email address",
+          "score": 0.9601849913597107,
+          "normalized_label": "email"
+        },
+        {
+          "text": "(343) 4532611",
+          "label": "phone number",
+          "score": 0.9886617660522461,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "Bertram",
+          "label": "full name",
+          "score": 0.5748261213302612,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Ronaldo",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "Edna37@hotmail.com",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "(343) 4532611",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "Bertram",
+          "type": "full name",
+          "normalized_type": "full name"
+        }
+      ]
+    },
+    {
+      "sample_idx": 25,
+      "text": "2. Employee Roles and Responsibilities Role of ISA (Individual Savings Account) includes overseeing IT development, identifiable via IDCARDNUM GT11358NF, with a SALARY of 4.911b. Performance updates on http://barker-baldwin.com/. All inquiries should be emailed to sjkcjvhgzgu4682@hotmail.com.",
+      "predictions": [
+        {
+          "text": "ISA",
+          "label": "organization",
+          "score": 0.7293065786361694,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Individual Savings Account",
+          "label": "organization",
+          "score": 0.6995446085929871,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "sjkcjvhgzgu4682@hotmail.com",
+          "label": "email address",
+          "score": 0.9453648328781128,
+          "normalized_label": "email"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "GT11358NF",
+          "type": "identity card number",
+          "normalized_type": "national_id"
+        },
+        {
+          "entity": "sjkcjvhgzgu4682@hotmail.com",
+          "type": "email address",
+          "normalized_type": "email"
+        }
+      ]
+    },
+    {
+      "sample_idx": 26,
+      "text": "**Campaign Name:** Spring Refresh\n\n**Ad Type:** Video\n\n**Creative Concept:** A vibrant, energetic video showcasing the benefits of our new product line, highlighting the transformation from dull to bright and lively.\n\n**Target Audience:** Straight adults aged 25-45 who enjoy outdoor activities and are health-conscious.\n\n**Reviewer Comments:** The video is engaging and effectively captures the essence of renewal and vibrancy. The use of bright colors and upbeat music aligns well with the target audience. The URL for more information is https://adcreativereview.com. The only feedback is that it might be helpful to include a voiceover with some of the key points to ensure the message is clear to all viewers. The reviewer with the ssn 252-85-0870, felt that the ad was very effective in reaching the target audience.\n\n**Approval Status:** Pending final review by BanterBuzz Advertising.",
+      "predictions": [
+        {
+          "text": "Straight adults",
+          "label": "full name",
+          "score": 0.30871233344078064,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "252-85-0870",
+          "label": "social security number",
+          "score": 0.9055940508842468,
+          "normalized_label": "ssn"
+        },
+        {
+          "text": "BanterBuzz Advertising",
+          "label": "organization",
+          "score": 0.9593695998191833,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "252-85-0870",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        },
+        {
+          "entity": "BanterBuzz Advertising",
+          "type": "organization",
+          "normalized_type": "organization"
+        }
+      ]
+    },
+    {
+      "sample_idx": 27,
+      "text": "This Healthcare Provider Contract is entered into between Athena Medical Group and the patient. Athena Medical Group is located in Attica, Greece. Any inquiries can be directed to the email, eleftheria@athenamedicalgroup.gr or by calling the phone number, +30 210 823 6798. The fax number for any correspondence is +30 210 345 6789. All communications will be handled with the utmost confidentiality, ensuring that patient information is protected at all times. The contract is valid from the time of signature until further notice. In case of any discrepancies or issues, please contact us at the provided email or phone number.",
+      "predictions": [
+        {
+          "text": "Athena Medical Group",
+          "label": "organization",
+          "score": 0.9926159381866455,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "patient",
+          "label": "full name",
+          "score": 0.4626857340335846,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Athena Medical Group",
+          "label": "organization",
+          "score": 0.9957175850868225,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Attica, Greece",
+          "label": "address",
+          "score": 0.8219745755195618,
+          "normalized_label": "address"
+        },
+        {
+          "text": "eleftheria@athenamedicalgroup.gr",
+          "label": "email address",
+          "score": 0.973443329334259,
+          "normalized_label": "email"
+        },
+        {
+          "text": "+30 210 823 6798",
+          "label": "phone number",
+          "score": 0.9897220730781555,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "+30 210 345 6789",
+          "label": "fax number",
+          "score": 0.9965277314186096,
+          "normalized_label": "fax_number"
+        },
+        {
+          "text": "patient",
+          "label": "full name",
+          "score": 0.4248754382133484,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Athena Medical Group",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "Athena Medical Group",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "eleftheria@athenamedicalgroup.gr",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "+30 210 823 6798",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "+30 210 345 6789",
+          "type": "fax number",
+          "normalized_type": "fax_number"
+        }
+      ]
+    },
+    {
+      "sample_idx": 28,
+      "text": "This Policy Modification Form is submitted by Maze Smith, on 15.07.2026. The policyholder resides at 114 Westmoreland Way, Boca Raton. The biometric identifier M94837216571 has been noted for verification purposes. This form is written in the language English and includes the requested changes to the life policy.",
+      "predictions": [
+        {
+          "text": "Maze Smith",
+          "label": "full name",
+          "score": 0.8682859539985657,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "15.07.2026",
+          "label": "date",
+          "score": 0.9976630210876465,
+          "normalized_label": "date"
+        },
+        {
+          "text": "114 Westmoreland Way, Boca Raton",
+          "label": "address",
+          "score": 0.9796932935714722,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Maze Smith",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "15.07.2026",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "114 Westmoreland Way",
+          "type": "address",
+          "normalized_type": "address"
+        }
+      ]
+    },
+    {
+      "sample_idx": 29,
+      "text": "Stridewise Consulting has a significant project milestone scheduled for 15.07.2026. The project timeline, managed by LauraStay1337, includes a critical review phase starting at 09h30. The employee with the ID MKT-3912 will be responsible for overseeing this phase, ensuring all tasks are completed on schedule.",
+      "predictions": [
+        {
+          "text": "Stridewise Consulting",
+          "label": "organization",
+          "score": 0.9891179203987122,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "15.07.2026",
+          "label": "date",
+          "score": 0.9981800317764282,
+          "normalized_label": "date"
+        },
+        {
+          "text": "LauraStay1337",
+          "label": "full name",
+          "score": 0.5646058917045593,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "09h30",
+          "label": "date",
+          "score": 0.41945552825927734,
+          "normalized_label": "date"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Stridewise Consulting",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "15.07.2026",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "LauraStay1337",
+          "type": "username",
+          "normalized_type": "username"
+        }
+      ]
+    },
+    {
+      "sample_idx": 30,
+      "text": "Meet Elara, an 18 year old female who speaks Australian English. Elara is a receptionist or information clerk. She is tech-savvy and enjoys browsing online, often using her credit debit card 4921 3876 5432 1098 for online purchases. Elara values convenience and efficiency, often seeking out ways to streamline her daily tasks. Her digital presence is significant, with a strong social media following and active engagement in various online communities.",
+      "predictions": [
+        {
+          "text": "Elara",
+          "label": "full name",
+          "score": 0.9685349464416504,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Elara",
+          "label": "full name",
+          "score": 0.9298650026321411,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "4921 3876 5432 1098",
+          "label": "credit card number",
+          "score": 0.9921379685401917,
+          "normalized_label": "credit_card"
+        },
+        {
+          "text": "Elara",
+          "label": "full name",
+          "score": 0.9588903784751892,
+          "normalized_label": "full name"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Elara",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "4921 3876 5432 1098",
+          "type": "credit card number",
+          "normalized_type": "credit_card"
+        }
+      ]
+    },
+    {
+      "sample_idx": 31,
+      "text": "The policy outlines that only verified individuals with 084790175 and 283.27.4873 can contribute to our database, ensuring the legitimacy of all data entered.",
+      "predictions": [],
+      "ground_truth": [
+        {
+          "entity": "084790175",
+          "type": "identity card number",
+          "normalized_type": "national_id"
+        },
+        {
+          "entity": "283.27.4873",
+          "type": "tax identification number",
+          "normalized_type": "tax_id"
+        }
+      ]
+    },
+    {
+      "sample_idx": 32,
+      "text": "Name: Kjersti \n Age: 65 \n City: Philadelphia, PA \n Profession: Temporary \n What is your account name? Savings Account \n Do you drive? If yes, provide your license number: T4165312.",
+      "predictions": [
+        {
+          "text": "Kjersti",
+          "label": "full name",
+          "score": 0.8767299056053162,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Philadelphia, PA",
+          "label": "address",
+          "score": 0.8374495506286621,
+          "normalized_label": "address"
+        },
+        {
+          "text": "Savings Account",
+          "label": "organization",
+          "score": 0.9465215802192688,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "T4165312",
+          "label": "drivers license number",
+          "score": 0.9647164344787598,
+          "normalized_label": "driver_license"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Kjersti",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "T4165312",
+          "type": "drivers license number",
+          "normalized_type": "driver_license"
+        }
+      ]
+    },
+    {
+      "sample_idx": 33,
+      "text": "Ethical guidelines mandate that direct identifiers, including 207061978 and 812931848, must be separated from study results to protect the identity of young participants.",
+      "predictions": [],
+      "ground_truth": [
+        {
+          "entity": "812931848",
+          "type": "tax identification number",
+          "normalized_type": "tax_id"
+        }
+      ]
+    },
+    {
+      "sample_idx": 34,
+      "text": "**Mortgage and Social Security Application**\n\n**Personal Information**\n\n- First Name: Cari\n- Last Name: Shively\n- Social Security Number: 266-67-9781\n- Street Address: 417 S K St\n- Phone Number: 239-782-2821\n\n**Employment History**\n\n| Previous Employer | Job Title | Duration of Employment |\n|-------------------|-----------|------------------------|\n|  |  |  |\n\n**Income Details**\n\n| Income Source | Annual Income |\n|---------------|----------------|\n|  |  |\n\n**Asset and Liability List**\n\n| Asset/Liability | Value/Amount |\n|-----------------|--------------|\n|  |  |\n\n**Mortgage-Specific Information**\n\n- Property Address: 417 S K St\n- Loan Amount: $\n- Loan Type:  |\n\n**Social Security-Specific Information**\n\n- Disability Status:  |\n- Benefit Type:  |\n- Expected Benefits: $",
+      "predictions": [
+        {
+          "text": "Cari",
+          "label": "full name",
+          "score": 0.8683768510818481,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Shively",
+          "label": "full name",
+          "score": 0.8629007935523987,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "266-67-9781",
+          "label": "social security number",
+          "score": 0.9937253594398499,
+          "normalized_label": "ssn"
+        },
+        {
+          "text": "417 S K St",
+          "label": "address",
+          "score": 0.7665775418281555,
+          "normalized_label": "address"
+        },
+        {
+          "text": "239-782-2821",
+          "label": "phone number",
+          "score": 0.9982831478118896,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "Previous Employer",
+          "label": "organization",
+          "score": 0.3885418772697449,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "417 S K St",
+          "label": "address",
+          "score": 0.8110396265983582,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Cari Shively",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "266-67-9781",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        },
+        {
+          "entity": "417 S K St",
+          "type": "address",
+          "normalized_type": "address"
+        },
+        {
+          "entity": "417 S K St",
+          "type": "address",
+          "normalized_type": "address"
+        }
+      ]
+    },
+    {
+      "sample_idx": 35,
+      "text": "Important: Your next CBT appointment is on March 20th, 2001. Please prepare your 085-80-4292 and 059 886 4921 for the session.",
+      "predictions": [
+        {
+          "text": "March 20th, 2001",
+          "label": "date",
+          "score": 0.9933189153671265,
+          "normalized_label": "date"
+        },
+        {
+          "text": "085-80-4292",
+          "label": "phone number",
+          "score": 0.9191635251045227,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "059 886 4921",
+          "label": "phone number",
+          "score": 0.9109674096107483,
+          "normalized_label": "phone"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "085-80-4292",
+          "type": "tax identification number",
+          "normalized_type": "tax_id"
+        },
+        {
+          "entity": "059 886 4921",
+          "type": "phone number",
+          "normalized_type": "phone"
+        }
+      ]
+    },
+    {
+      "sample_idx": 36,
+      "text": "**Mortgage Modification Agreement**\n\n**Loan Number:** FR72 1000 6005 0001 2345 678\n\n**Borrower Information:**\n- **First Name:** Batsukh\n- **Last Name:** Tsedev\n- **Email:** batsukh@gerelbank.mn\n\n**Original Loan Terms:**\n- **Interest Rate:** 4.5%\n- **Principal Balance:** $250,000\n- **Loan Term:** 30 years\n- **Payment Schedule:** Monthly\n- **Bank Routing Number:** 807213468\n\n**Modified Terms:**\n- **New Interest Rate:** 3.75%\n- **New Principal Balance:** $240,000\n- **New Loan Term:** 35 years\n- **New Payment Schedule:** Monthly\n- **Credit/Debit Card:** 4917 5398 7032 4129\n- **CVV:** 851\n\n**Effective Date:** 10:15:45 PM\n\n**Signatures:**\n_________________________       _________________________\nBorrower's Signature             Lender's Signature\n\n**Note:** This modification agreement is effective immediately upon signing by both parties. For any inquiries, please contact the lender at the fax number 976-23887.",
+      "predictions": [
+        {
+          "text": "Batsukh",
+          "label": "full name",
+          "score": 0.8999753594398499,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Tsedev",
+          "label": "full name",
+          "score": 0.8445609211921692,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "batsukh",
+          "label": "full name",
+          "score": 0.8415924310684204,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "$250,000",
+          "label": "bank account balance",
+          "score": 0.39475125074386597,
+          "normalized_label": "bank account balance"
+        },
+        {
+          "text": "807213468",
+          "label": "fax number",
+          "score": 0.7161840796470642,
+          "normalized_label": "fax_number"
+        },
+        {
+          "text": "$240,000",
+          "label": "bank account balance",
+          "score": 0.4316703677177429,
+          "normalized_label": "bank account balance"
+        },
+        {
+          "text": "4917 5398 7032 4129",
+          "label": "credit card number",
+          "score": 0.9858337044715881,
+          "normalized_label": "credit_card"
+        },
+        {
+          "text": "10:15:45 PM",
+          "label": "date",
+          "score": 0.4062784016132355,
+          "normalized_label": "date"
+        },
+        {
+          "text": "976-23887",
+          "label": "fax number",
+          "score": 0.9924643039703369,
+          "normalized_label": "fax_number"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "FR72 1000 6005 0001 2345 678",
+          "type": "bank account number",
+          "normalized_type": "bank_account"
+        },
+        {
+          "entity": "Batsukh Tsedev",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "batsukh@gerelbank.mn",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "4917 5398 7032 4129",
+          "type": "credit card number",
+          "normalized_type": "credit_card"
+        },
+        {
+          "entity": "10:15:45 PM",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "976-23887",
+          "type": "fax number",
+          "normalized_type": "fax_number"
+        }
+      ]
+    },
+    {
+      "sample_idx": 37,
+      "text": "John Smith, a financial analyst at Morgan Stanley, has been taking Lipitor for his high cholesterol. He started the medication in January 2022 and reports significant improvement in his lipid profile. John, who is based in New York, closely monitors the stock market and advises his clients on portfolio diversification.",
+      "predictions": [
+        {
+          "text": "John Smith",
+          "label": "full name",
+          "score": 0.9355494379997253,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Morgan Stanley",
+          "label": "organization",
+          "score": 0.9901307821273804,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Lipitor",
+          "label": "medication",
+          "score": 0.9967043995857239,
+          "normalized_label": "medication"
+        },
+        {
+          "text": "high cholesterol",
+          "label": "medical condition",
+          "score": 0.9618701338768005,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "January 2022",
+          "label": "date",
+          "score": 0.9965264201164246,
+          "normalized_label": "date"
+        },
+        {
+          "text": "lipid profile",
+          "label": "medical condition",
+          "score": 0.5214565396308899,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "New York",
+          "label": "address",
+          "score": 0.6898049116134644,
+          "normalized_label": "address"
+        },
+        {
+          "text": "portfolio diversification",
+          "label": "medical treatment",
+          "score": 0.42434728145599365,
+          "normalized_label": "procedure"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "John Smith",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "Morgan Stanley",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "Lipitor",
+          "type": "medication",
+          "normalized_type": "medication"
+        },
+        {
+          "entity": "high cholesterol",
+          "type": "medical condition",
+          "normalized_type": "medical_condition"
+        },
+        {
+          "entity": "January 2022",
+          "type": "date",
+          "normalized_type": "date"
+        }
+      ]
+    },
+    {
+      "sample_idx": 38,
+      "text": "Hello 7-year-old applicant, your auto insurance premium quote is 814726.82. We'll need your street address Perimeter Loop Trail for further processing.",
+      "predictions": [
+        {
+          "text": "7-year-old applicant",
+          "label": "full name",
+          "score": 0.4859718382358551,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Perimeter Loop Trail",
+          "label": "address",
+          "score": 0.8515889048576355,
+          "normalized_label": "address"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Perimeter Loop Trail",
+          "type": "address",
+          "normalized_type": "address"
+        }
+      ]
+    },
+    {
+      "sample_idx": 39,
+      "text": "Treating clients in the area of 96003 with a fresh, organic meal plan. The initiative is guided by the Afghani and is aimed at improving the overall nutritional status of ethnic minorities.",
+      "predictions": [
+        {
+          "text": "96003",
+          "label": "address",
+          "score": 0.43884217739105225,
+          "normalized_label": "address"
+        },
+        {
+          "text": "Afghani",
+          "label": "organization",
+          "score": 0.8391883969306946,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": []
+    },
+    {
+      "sample_idx": 40,
+      "text": "**Organ Donor Registration and Access Control Form**\n\n**Personal Identification**\n\n- First Name: Yassine\n- Last Name:\n- Date of Birth:\n- ID Number: 140-06-1817\n- Language Spoken: Darija\n- Religious Belief: Islam\n\n**Consent Details for Organ Donation**\n\n- Do you consent to organ donation? (Yes/No)\n- If yes, please specify which organs:\n- Additional comments:\n\n**Access Control Credentials**\n\n- User ID:\n- PIN:\n- Biometric Identifier: P76543928135\n\n**Emergency Contact Information**\n\n- Emergency Contact Name:\n- Emergency Contact Phone Number:\n- Relationship to Emergency Contact:",
+      "predictions": [
+        {
+          "text": "Yassine",
+          "label": "full name",
+          "score": 0.799319863319397,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Darija",
+          "label": "username",
+          "score": 0.44734910130500793,
+          "normalized_label": "username"
+        },
+        {
+          "text": "Emergency Contact Phone Number",
+          "label": "phone number",
+          "score": 0.5140947103500366,
+          "normalized_label": "phone"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Yassine",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "140-06-1817",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        }
+      ]
+    },
+    {
+      "sample_idx": 41,
+      "text": "**Safety Incident Summary**\n\n| Field                | Details                                                                 |\n|----------------------|-----------------------------------------------------------------------|\n| Incident ID          | INC-20251023-001                                                |\n| Date/Time            | 2025-10-23T14:57:29                                              |\n| Location             | -31.7348,-55.9782                                               |\n| Incident Type        | Medical Emergency                                               |\n| Responding Units     | EMS Unit 1, Police Unit 3                                        |\n| Actions Taken        | Administered first aid, transported to hospital.                  |\n| Injuries/Damages     | Patient with age 60, national id 21152123-5, education level high school reported chest pains. |\n| Witnesses            | None reported                                                   |\n| Narrative Description| At 2025-10-23T14:57:29, a medical emergency was reported at coordinate -31.7348,-55.9782. Responding units arrived to find a 60 year old individual with national id 21152123-5 experiencing chest pains. The individual, who had completed high school, was administered first aid on the scene and then transported to the nearest hospital for further treatment. No other witnesses were present at the time of the incident. |",
+      "predictions": [
+        {
+          "text": "INC-20251023-001",
+          "label": "medical treatment",
+          "score": 0.31799012422561646,
+          "normalized_label": "procedure"
+        },
+        {
+          "text": "2025-10-23T14:57:29",
+          "label": "date",
+          "score": 0.9876704216003418,
+          "normalized_label": "date"
+        },
+        {
+          "text": "EMS Unit 1, Police Unit 3",
+          "label": "organization",
+          "score": 0.617722749710083,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "chest pains",
+          "label": "medical condition",
+          "score": 0.7114620208740234,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "2025-10-23T14:57:29",
+          "label": "date",
+          "score": 0.9709160923957825,
+          "normalized_label": "date"
+        },
+        {
+          "text": "chest pains",
+          "label": "medical condition",
+          "score": 0.6880878806114197,
+          "normalized_label": "medical_condition"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "21152123-5",
+          "type": "identity card number",
+          "normalized_type": "national_id"
+        },
+        {
+          "entity": "21152123-5",
+          "type": "identity card number",
+          "normalized_type": "national_id"
+        }
+      ]
+    },
+    {
+      "sample_idx": 42,
+      "text": "Remember to update your payment info including 38608648378412 by 2:40pm on the portal http://www.dennis.info/.",
+      "predictions": [],
+      "ground_truth": [
+        {
+          "entity": "38608648378412",
+          "type": "credit card number",
+          "normalized_type": "credit_card"
+        }
+      ]
+    },
+    {
+      "sample_idx": 43,
+      "text": "**Access Control Systems Health Insurance Enrollment Form**\n\n**Policyholder Information**\n\n| Field | Value |\n|-------|-------|\n| First Name | Robert |\n| Last Name | Steele |\n| Date of Birth | 1951-06-10 |\n| Social Security Number | 033-45-6164 |\n| Street Address | 13 Berkeley Av |\n| Email | robert.steele10@icloud.com |\n\n**Employment Details**\n\n| Field | Value |\n|-------|-------|\n| Employer Name |  |\n| Job Title |  |\n\n**Dependent Coverage**\n\n| Dependent Name | Relationship | Date of Birth |\n|----------------|--------------|---------------|\n|  |  |  |\n\n**Plan Selection**\n\n| Field | Value |\n|-------|-------|\n| Health Plan Beneficiary Number | GRP9837547-H2 |\n| Plan Type |  |\n\n**Signature Lines**\n\n| Field | Value |\n|-------|-------|\n| Policyholder Signature |  |\n| Date |  |\n\n**Submission Instructions**\n\nPlease review all information for accuracy. Submit this form to your benefits administrator for processing.",
+      "predictions": [
+        {
+          "text": "Access Control Systems",
+          "label": "organization",
+          "score": 0.5239169597625732,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "Robert",
+          "label": "full name",
+          "score": 0.6187740564346313,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Steele",
+          "label": "full name",
+          "score": 0.4150716960430145,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "1951-06-10",
+          "label": "date",
+          "score": 0.8967863917350769,
+          "normalized_label": "date"
+        },
+        {
+          "text": "033-45-6164",
+          "label": "social security number",
+          "score": 0.9960357546806335,
+          "normalized_label": "ssn"
+        },
+        {
+          "text": "13 Berkeley Av",
+          "label": "address",
+          "score": 0.8991486430168152,
+          "normalized_label": "address"
+        },
+        {
+          "text": "robert.steele10@icloud.com",
+          "label": "email address",
+          "score": 0.8777154088020325,
+          "normalized_label": "email"
+        },
+        {
+          "text": "Employer Name",
+          "label": "organization",
+          "score": 0.36137834191322327,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "GRP9837547-H2",
+          "label": "health insurance id number",
+          "score": 0.5649529695510864,
+          "normalized_label": "health_insurance"
+        },
+        {
+          "text": "benefits administrator",
+          "label": "organization",
+          "score": 0.30914896726608276,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Robert Steele",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "1951-06-10",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "033-45-6164",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        },
+        {
+          "entity": "13 Berkeley Av",
+          "type": "address",
+          "normalized_type": "address"
+        },
+        {
+          "entity": "robert.steele10@icloud.com",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "GRP9837547-H2",
+          "type": "health insurance id number",
+          "normalized_type": "health_insurance"
+        }
+      ]
+    },
+    {
+      "sample_idx": 44,
+      "text": "Division contract team lead Chief Solutions Engineer should review the contract dated 11th September with Smitham LLC.",
+      "predictions": [
+        {
+          "text": "Chief Solutions Engineer",
+          "label": "full name",
+          "score": 0.7836896777153015,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "11th September",
+          "label": "date",
+          "score": 0.9949532151222229,
+          "normalized_label": "date"
+        },
+        {
+          "text": "Smitham LLC",
+          "label": "organization",
+          "score": 0.9952404499053955,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "11th September",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "Smitham LLC",
+          "type": "organization",
+          "normalized_type": "organization"
+        }
+      ]
+    },
+    {
+      "sample_idx": 45,
+      "text": "This Marketing and User Agreement is effective as of 07/15/2024. This agreement is between the user, FaisalAlBalushi_GamerX99, and MarkSprint, the company. FaisalAlBalushi_GamerX99 may contact MarkSprint via email at faisal1987@marksprint.om or by phone at 9643 1857. MarkSprint collects certain data from users, including the user name, FaisalAlBalushi_GamerX99, email, faisal1987@marksprint.om, and phone number, 9643 1857. This data is used to provide personalized marketing communications. FaisalAlBalushi_GamerX99 may opt-out of receiving marketing communications at any time by following the opt-out instructions provided in the communications or by visiting https://marketo.com/legal/user-agreement?version=2023&locale=en_US. The governing law for this agreement is the laws of the jurisdiction where the company, MarkSprint, is based. FaisalAlBalushi_GamerX99 acknowledges that they have read and understood this agreement by logging in with their password, pass1234pass1234.",
+      "predictions": [
+        {
+          "text": "07/15/2024",
+          "label": "date",
+          "score": 0.9937801957130432,
+          "normalized_label": "date"
+        },
+        {
+          "text": "FaisalAlBalushi_GamerX99",
+          "label": "username",
+          "score": 0.9397557973861694,
+          "normalized_label": "username"
+        },
+        {
+          "text": "MarkSprint",
+          "label": "organization",
+          "score": 0.5262256860733032,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "FaisalAlBalushi_GamerX99",
+          "label": "username",
+          "score": 0.8862707018852234,
+          "normalized_label": "username"
+        },
+        {
+          "text": "MarkSprint",
+          "label": "organization",
+          "score": 0.5735015869140625,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "faisal1987@marksprint.om",
+          "label": "email address",
+          "score": 0.7459149956703186,
+          "normalized_label": "email"
+        },
+        {
+          "text": "9643 1857",
+          "label": "phone number",
+          "score": 0.9735774397850037,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "MarkSprint",
+          "label": "organization",
+          "score": 0.5033758878707886,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "FaisalAlBalushi_GamerX99",
+          "label": "username",
+          "score": 0.9593716859817505,
+          "normalized_label": "username"
+        },
+        {
+          "text": "faisal1987@marksprint.om",
+          "label": "email address",
+          "score": 0.7947778105735779,
+          "normalized_label": "email"
+        },
+        {
+          "text": "9643 1857",
+          "label": "phone number",
+          "score": 0.9850386381149292,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "FaisalAlBalushi_GamerX99",
+          "label": "username",
+          "score": 0.8545453548431396,
+          "normalized_label": "username"
+        },
+        {
+          "text": "MarkSprint",
+          "label": "organization",
+          "score": 0.5111430883407593,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "FaisalAlBalushi_GamerX99",
+          "label": "username",
+          "score": 0.8504191637039185,
+          "normalized_label": "username"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "07/15/2024",
+          "type": "date",
+          "normalized_type": "date"
+        },
+        {
+          "entity": "FaisalAlBalushi_GamerX99",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "MarkSprint",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "FaisalAlBalushi_GamerX99",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "MarkSprint",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "faisal1987@marksprint.om",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "9643 1857",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "MarkSprint",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "FaisalAlBalushi_GamerX99",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "faisal1987@marksprint.om",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "9643 1857",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "FaisalAlBalushi_GamerX99",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "MarkSprint",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "FaisalAlBalushi_GamerX99",
+          "type": "username",
+          "normalized_type": "username"
+        }
+      ]
+    },
+    {
+      "sample_idx": 46,
+      "text": "Hey there, I'm @healthguru123. I've been diagnosed with Type 2 Diabetes last year and have been managing it with the help of Dr. Linda Hayes at the Greenfield Clinic. My recent HbA1c level was 6.8%, which is a significant improvement from the previous 8.4%. I've been following a strict diet and exercise regimen advised by Dr. Hayes, and I also attend bi-weekly support group meetings organized by the clinic.",
+      "predictions": [
+        {
+          "text": "@healthguru123",
+          "label": "email address",
+          "score": 0.523891806602478,
+          "normalized_label": "email"
+        },
+        {
+          "text": "Type 2 Diabetes",
+          "label": "medical condition",
+          "score": 0.992171049118042,
+          "normalized_label": "medical_condition"
+        },
+        {
+          "text": "Dr. Linda Hayes",
+          "label": "full name",
+          "score": 0.4743388295173645,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "Greenfield Clinic",
+          "label": "organization",
+          "score": 0.9957664012908936,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "6.8%",
+          "label": "credit score",
+          "score": 0.39403825998306274,
+          "normalized_label": "credit_score"
+        },
+        {
+          "text": "8.4%",
+          "label": "credit score",
+          "score": 0.31680455803871155,
+          "normalized_label": "credit_score"
+        },
+        {
+          "text": "diet and exercise regimen",
+          "label": "medical treatment",
+          "score": 0.36181557178497314,
+          "normalized_label": "procedure"
+        },
+        {
+          "text": "support group meetings",
+          "label": "medical treatment",
+          "score": 0.43478450179100037,
+          "normalized_label": "procedure"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "@healthguru123",
+          "type": "username",
+          "normalized_type": "username"
+        },
+        {
+          "entity": "Type 2 Diabetes",
+          "type": "medical condition",
+          "normalized_type": "medical_condition"
+        },
+        {
+          "entity": "Dr. Linda Hayes",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "Greenfield Clinic",
+          "type": "organization",
+          "normalized_type": "organization"
+        }
+      ]
+    },
+    {
+      "sample_idx": 47,
+      "text": "Dear Parents, while transferring the school fees, do double check our AE347290209006301092325 and make sure you use IZTCSI08XXX. There have been incidents of fraudulent transactions before",
+      "predictions": [
+        {
+          "text": "Parents",
+          "label": "organization",
+          "score": 0.9110561609268188,
+          "normalized_label": "organization"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "AE347290209006301092325",
+          "type": "iban",
+          "normalized_type": "iban"
+        }
+      ]
+    },
+    {
+      "sample_idx": 48,
+      "text": "Welcome to the implementation guide from Atlanta Strategic Advisors. Our comprehensive approach ensures that your project is executed with precision and efficiency. For any inquiries or support, please contact us via email at giorgi.gelashvili@atlantastrategicadvisors.ge or by phone at +995 425 458-173. We are based in Georgia and are committed to providing top-tier consulting services.\n\nOur methodology is designed to streamline the implementation process, ensuring that each step is clearly defined and executed. You can find more detailed information and resources on our website at https://deloitte.com/insights/consulting/implementation-guide. Our team of experts will guide you through best practices, case studies, and step-by-step instructions to ensure the success of your project. Additionally, if you need to fax any documents, our fax number is +995 42 543-1982. For international transactions, our SWIFT BIC is GENCGE74KKL.",
+      "predictions": [
+        {
+          "text": "Atlanta Strategic Advisors",
+          "label": "organization",
+          "score": 0.9919766783714294,
+          "normalized_label": "organization"
+        },
+        {
+          "text": "giorgi.gelashvili@atlantastrategicadvisors.ge",
+          "label": "email address",
+          "score": 0.9890580773353577,
+          "normalized_label": "email"
+        },
+        {
+          "text": "+995 425 458-173",
+          "label": "phone number",
+          "score": 0.9822927117347717,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "+995 42 543-1982",
+          "label": "fax number",
+          "score": 0.9971831440925598,
+          "normalized_label": "fax_number"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "Atlanta Strategic Advisors",
+          "type": "organization",
+          "normalized_type": "organization"
+        },
+        {
+          "entity": "giorgi.gelashvili@atlantastrategicadvisors.ge",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "+995 425 458-173",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "+995 42 543-1982",
+          "type": "fax number",
+          "normalized_type": "fax_number"
+        }
+      ]
+    },
+    {
+      "sample_idx": 49,
+      "text": "**Credit Application**\n\n**Applicant Information:**\n- First Name: James\n- Social Security Number: 179-64-9298\n- Street Address: 20 Clinton St\n- Phone Number: 445-841-8751\n- Email: jamessullivan1948@gmail.com\n\n**Employment Details:**\n- County: Montgomery County\n\n**Financial Information:**\n- Credit/Debit Card Number: 3468 156274 45600\n\n**Authorization:**\nI, the applicant, authorize the use of the above information to assess my creditworthiness for the requested credit card.",
+      "predictions": [
+        {
+          "text": "James",
+          "label": "full name",
+          "score": 0.9515847563743591,
+          "normalized_label": "full name"
+        },
+        {
+          "text": "179-64-9298",
+          "label": "social security number",
+          "score": 0.9966310858726501,
+          "normalized_label": "ssn"
+        },
+        {
+          "text": "20 Clinton St",
+          "label": "address",
+          "score": 0.9649438261985779,
+          "normalized_label": "address"
+        },
+        {
+          "text": "445-841-8751",
+          "label": "phone number",
+          "score": 0.9969268441200256,
+          "normalized_label": "phone"
+        },
+        {
+          "text": "jamessullivan1948@gmail.com",
+          "label": "email address",
+          "score": 0.9902815818786621,
+          "normalized_label": "email"
+        },
+        {
+          "text": "3468 156274 45600",
+          "label": "credit card number",
+          "score": 0.9992281198501587,
+          "normalized_label": "credit_card"
+        }
+      ],
+      "ground_truth": [
+        {
+          "entity": "James",
+          "type": "full name",
+          "normalized_type": "full name"
+        },
+        {
+          "entity": "179-64-9298",
+          "type": "social security number",
+          "normalized_type": "ssn"
+        },
+        {
+          "entity": "20 Clinton St",
+          "type": "address",
+          "normalized_type": "address"
+        },
+        {
+          "entity": "445-841-8751",
+          "type": "phone number",
+          "normalized_type": "phone"
+        },
+        {
+          "entity": "jamessullivan1948@gmail.com",
+          "type": "email address",
+          "normalized_type": "email"
+        },
+        {
+          "entity": "3468 156274 45600",
+          "type": "credit card number",
+          "normalized_type": "credit_card"
+        }
+      ]
+    }
+  ]
+}
