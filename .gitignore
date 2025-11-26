@@ -1,6 +1,6 @@
 # Data files (large)
 data/
-preds_24_labels/
+preds/
 preds_unified/
 
 # macOS
